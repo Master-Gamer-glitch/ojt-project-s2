@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
 
 * {
     box-sizing: border-box;
@@ -26,11 +26,25 @@ header {
 }
 
 h1 {
-    color: #ffffff;
-    font-size: 2.5rem;
-    font-weight: 600;
+    font-size: 3.2rem;
     letter-spacing: -1px;
     margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+}
+
+.font-playfair {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-style: italic;
+    color: #ffffff;
+}
+
+.font-inter {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: #aaaaaa;
 }
 
 .add-task-container {
