@@ -46,6 +46,16 @@ function handleRouteChange() {
         }
     });
 
+    // Toggle global header title
+    const globalHeaderTitle = document.getElementById('global-header-title');
+    if (globalHeaderTitle) {
+        if (viewName === 'portfolio') {
+            globalHeaderTitle.style.display = '';
+        } else {
+            globalHeaderTitle.style.display = 'none';
+        }
+    }
+
     // On mobile, close sidebar when a link is clicked
     const sidebar = document.getElementById('sidebar');
     if (sidebar && window.innerWidth <= 768) {

@@ -123,4 +123,4 @@ function showTransactions() {
 window.addEventListener('DOMContentLoaded', function () {
     document.getElementById("date").value = new Date().toISOString().split("T")[0];
     showTransactions();
-};
+});
