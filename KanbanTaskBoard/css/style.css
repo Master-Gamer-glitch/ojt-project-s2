@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
 
-* {
+#view-kanban * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-body {
+#view-kanban {
     background-color: #000000;
     color: #e0e0e0;
     padding: 40px 20px;
@@ -15,17 +15,17 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-.board-container {
+#view-kanban .board-container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-header {
+#view-kanban header {
     text-align: center;
     margin-bottom: 50px;
 }
 
-h1 {
+#view-kanban h1 {
     font-size: 3.2rem;
     letter-spacing: -1px;
     margin-bottom: 30px;
@@ -34,20 +34,20 @@ h1 {
     gap: 14px;
 }
 
-.font-playfair {
+#view-kanban .font-playfair {
     font-family: 'Playfair Display', serif;
     font-weight: 600;
     font-style: italic;
     color: #ffffff;
 }
 
-.font-inter {
+#view-kanban .font-inter {
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     color: #aaaaaa;
 }
 
-.add-task-container {
+#view-kanban .add-task-container {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -57,7 +57,7 @@ h1 {
     margin-right: auto;
 }
 
-#taskInput {
+#view-kanban #taskInput {
     padding: 16px 20px;
     font-size: 16px;
     background-color: #111111;
@@ -68,16 +68,16 @@ h1 {
     transition: all 0.3s ease;
 }
 
-#taskInput::placeholder {
+#view-kanban #taskInput::placeholder {
     color: #666666;
 }
 
-#taskInput:focus {
+#view-kanban #taskInput:focus {
     border-color: #666666;
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
 }
 
-#addTaskBtn {
+#view-kanban #addTaskBtn {
     padding: 16px 24px;
     font-size: 16px;
     font-weight: 500;
@@ -89,22 +89,22 @@ h1 {
     transition: all 0.3s ease;
 }
 
-#addTaskBtn:hover {
+#view-kanban #addTaskBtn:hover {
     background-color: #e0e0e0;
     transform: translateY(-1px);
 }
 
-#addTaskBtn:active {
+#view-kanban #addTaskBtn:active {
     transform: translateY(1px);
 }
 
-.board {
+#view-kanban .board {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-.column {
+#view-kanban .column {
     background-color: #0a0a0a;
     border: 1px solid #222222;
     border-radius: 16px;
@@ -115,11 +115,11 @@ h1 {
     transition: border-color 0.3s ease;
 }
 
-.column:hover {
+#view-kanban .column:hover {
     border-color: #333333;
 }
 
-.column-header {
+#view-kanban .column-header {
     text-align: left;
     padding: 0 0 16px 0;
     margin-bottom: 20px;
@@ -131,19 +131,19 @@ h1 {
     text-transform: uppercase;
 }
 
-#todo { border-top: 2px solid #3742fa; }
-#progress { border-top: 2px solid #ffa502; }
-#done { border-top: 2px solid #2ed573; }
+#view-kanban #todo { border-top: 2px solid #3742fa; }
+#view-kanban #progress { border-top: 2px solid #ffa502; }
+#view-kanban #done { border-top: 2px solid #2ed573; }
 
-.todo-header { color: #3742fa; }
-.progress-header { color: #ffa502; }
-.done-header { color: #2ed573; }
+#view-kanban .todo-header { color: #3742fa; }
+#view-kanban .progress-header { color: #ffa502; }
+#view-kanban .done-header { color: #2ed573; }
 
-#todo .task-card { border-left: 3px solid #3742fa; }
-#progress .task-card { border-left: 3px solid #ffa502; }
-#done .task-card { border-left: 3px solid #2ed573; }
+#view-kanban #todo .task-card { border-left: 3px solid #3742fa; }
+#view-kanban #progress .task-card { border-left: 3px solid #ffa502; }
+#view-kanban #done .task-card { border-left: 3px solid #2ed573; }
 
-.task-list {
+#view-kanban .task-list {
     flex-grow: 1;
     min-height: 100px;
     display: flex;
@@ -151,7 +151,7 @@ h1 {
     gap: 12px;
 }
 
-.task-card {
+#view-kanban .task-card {
     background-color: #111111;
     border: 1px solid #222222;
     padding: 16px;
@@ -164,36 +164,36 @@ h1 {
     word-break: break-word;
 }
 
-.task-card:hover {
+#view-kanban .task-card:hover {
     transform: translateY(-2px);
     border-color: #444444;
     background-color: #161616;
 }
 
-.task-card:active {
+#view-kanban .task-card:active {
     cursor: grabbing;
     transform: scale(0.98);
 }
 
-.task-text {
+#view-kanban .task-text {
     flex-grow: 1;
     margin-right: 16px;
     font-size: 0.95rem;
     color: #dddddd;
 }
 
-.task-actions {
+#view-kanban .task-actions {
     display: flex;
     gap: 8px;
     opacity: 0.3;
     transition: opacity 0.2s ease;
 }
 
-.task-card:hover .task-actions {
+#view-kanban .task-card:hover .task-actions {
     opacity: 1;
 }
 
-.edit-btn, .delete-btn {
+#view-kanban .edit-btn, #view-kanban .delete-btn {
     border: 1px solid #333333;
     background-color: transparent;
     padding: 6px 10px;
@@ -204,35 +204,35 @@ h1 {
     transition: all 0.2s ease;
 }
 
-.edit-btn:hover {
+#view-kanban .edit-btn:hover {
     color: #ffffff;
     border-color: #ffffff;
     background-color: #222222;
 }
 
-.delete-btn:hover {
+#view-kanban .delete-btn:hover {
     color: #ff4444;
     border-color: #ff4444;
     background-color: rgba(255, 68, 68, 0.1);
 }
 
 @media (min-width: 768px) {
-    .add-task-container {
+    #view-kanban .add-task-container {
         flex-direction: row;
         justify-content: center;
     }
 
-    #taskInput {
+    #view-kanban #taskInput {
         flex-grow: 1;
     }
 }
 
 @media (min-width: 1024px) {
-    .board {
+    #view-kanban .board {
         flex-direction: row;
     }
 
-    .column {
+    #view-kanban .column {
         flex: 1;
     }
 }

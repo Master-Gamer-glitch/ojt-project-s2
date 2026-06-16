@@ -1,4 +1,4 @@
-:root {
+#view-news {
     --bg-color: #000000;
     --text-color: #ffffff;
     --card-bg: #0a0a0a;
@@ -7,13 +7,13 @@
     --error-color: #ef4444;
 }
 
-* {
+#view-news * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
+#view-news {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -23,7 +23,7 @@ body {
     flex-direction: column;
 }
 
-header {
+#view-news header {
     background-color: var(--card-bg);
     padding: 1.5rem 2rem;
     display: flex;
@@ -37,13 +37,13 @@ header {
     z-index: 10;
 }
 
-.logo {
+#view-news .logo {
     display: flex;
     align-items: center;
     color: white;
 }
 
-.logo-serif {
+#view-news .logo-serif {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-weight: 600;
@@ -51,20 +51,20 @@ header {
     margin-right: 2px;
 }
 
-.logo-sans {
+#view-news .logo-sans {
     font-family: 'Inter', sans-serif;
     font-weight: 800;
     font-size: 2.2rem;
     letter-spacing: -1px;
 }
 
-.controls {
+#view-news .controls {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
 }
 
-input, select, button {
+#view-news input, #view-news select, #view-news button {
     padding: 0.75rem 1rem;
     border-radius: 8px;
     border: 1px solid #333333;
@@ -76,12 +76,12 @@ input, select, button {
     outline: none;
 }
 
-input:focus, select:focus {
+#view-news input:focus, #view-news select:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
 }
 
-button {
+#view-news button {
     background-color: var(--primary-color);
     color: #000000;
     border: none;
@@ -89,12 +89,12 @@ button {
     font-weight: 600;
 }
 
-button:hover {
+#view-news button:hover {
     background-color: var(--primary-hover);
     transform: translateY(-1px);
 }
 
-main {
+#view-news main {
     flex: 1;
     padding: 2rem;
     max-width: 1200px;
@@ -102,13 +102,13 @@ main {
     width: 100%;
 }
 
-.news-grid {
+#view-news .news-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-.news-card {
+#view-news .news-card {
     background-color: var(--card-bg);
     border: 1px solid #222222;
     border-radius: 12px;
@@ -118,41 +118,41 @@ main {
     flex-direction: column;
 }
 
-.news-card:hover {
+#view-news .news-card:hover {
     transform: translateY(-5px);
     border-color: #444444;
     box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.05);
 }
 
-.news-image {
+#view-news .news-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
     background-color: #111111;
 }
 
-.news-content {
+#view-news .news-content {
     padding: 1.5rem;
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-.news-title {
+#view-news .news-title {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
     line-height: 1.4;
 }
 
-.news-desc {
+#view-news .news-desc {
     color: #94a3b8;
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
     flex: 1;
 }
 
-.news-meta {
+#view-news .news-meta {
     display: flex;
     justify-content: space-between;
     font-size: 0.8rem;
@@ -160,7 +160,7 @@ main {
     margin-bottom: 1rem;
 }
 
-.news-link {
+#view-news .news-link {
     text-decoration: none;
     color: var(--primary-color);
     font-weight: 600;
@@ -168,12 +168,12 @@ main {
     transition: color 0.2s;
 }
 
-.news-link:hover {
+#view-news .news-link:hover {
     color: #60a5fa;
 }
 
 /* Loading Spinner */
-.spinner {
+#view-news .spinner {
     width: 50px;
     height: 50px;
     border: 4px solid #222222;
@@ -188,11 +188,11 @@ main {
     100% { transform: rotate(360deg); }
 }
 
-.hidden {
+#view-news .hidden {
     display: none;
 }
 
-.error {
+#view-news .error {
     background-color: rgba(239, 68, 68, 0.1);
     color: var(--error-color);
     padding: 1rem;

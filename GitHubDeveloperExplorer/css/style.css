@@ -1,4 +1,4 @@
-:root {
+#view-github {
     --bg-main: #000000;
     --bg-panel: #0a0a0a;
     --border-color: #1c1c1e;
@@ -18,13 +18,13 @@
     --font-mono: ui-monospace, SFMono-Regular, SF Pro Text, Menlo, Monaco, Consolas, monospace;
 }
 
-* {
+#view-github * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
+#view-github {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-main);
     color: var(--text-primary);
@@ -32,21 +32,21 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-a {
+#view-github a {
     color: var(--text-primary);
     text-decoration: none;
     transition: color 0.15s ease;
 }
 
-a:hover {
+#view-github a:hover {
     text-decoration: underline;
 }
 
-ul {
+#view-github ul {
     list-style: none;
 }
 
-input, select, button {
+#view-github input, #view-github select, #view-github button {
     font-family: inherit;
     font-size: inherit;
     background: none;
@@ -54,18 +54,18 @@ input, select, button {
     color: inherit;
 }
 
-.hidden {
+#view-github .hidden {
     display: none !important;
 }
 
 /* Layout Containers */
-.container {
+#view-github .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 1.5rem;
 }
 
-.panel {
+#view-github .panel {
     background-color: var(--bg-panel);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
@@ -73,7 +73,7 @@ input, select, button {
 }
 
 /* Header */
-.app-header {
+#view-github .app-header {
     background-color: var(--bg-main);
     border-bottom: 1px solid var(--border-color);
     padding: 1rem 0;
@@ -83,45 +83,45 @@ input, select, button {
     backdrop-filter: blur(10px);
 }
 
-.header-content {
+#view-github .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
 }
 
-.logo {
+#view-github .logo {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     font-size: 1.45rem;
 }
 
-.logo svg {
+#view-github .logo svg {
     color: var(--text-primary);
 }
 
-.logo-part-1 {
+#view-github .logo-part-1 {
     font-family: 'Georgia', 'Times New Roman', serif;
     font-style: italic;
     font-weight: 400;
     letter-spacing: -0.02em;
 }
 
-.logo-part-2 {
+#view-github .logo-part-2 {
     font-family: 'Inter', -apple-system, sans-serif;
     font-weight: 700;
     letter-spacing: -0.04em;
 }
 
-.search-form {
+#view-github .search-form {
     display: flex;
     gap: 0.5rem;
     max-width: 320px;
     width: 100%;
 }
 
-.search-form input {
+#view-github .search-form input {
     flex: 1;
     padding: 0.45rem 0.75rem;
     border: 1px solid var(--border-color);
@@ -132,12 +132,12 @@ input, select, button {
     transition: border-color 0.15s ease;
 }
 
-.search-form input:focus {
+#view-github .search-form input:focus {
     outline: none;
     border-color: var(--accent);
 }
 
-.search-form button {
+#view-github .search-form button {
     padding: 0.45rem 0.9rem;
     background-color: var(--accent);
     color: var(--bg-main);
@@ -148,17 +148,17 @@ input, select, button {
     transition: background-color 0.15s ease;
 }
 
-.search-form button:hover {
+#view-github .search-form button:hover {
     background-color: var(--accent-hover);
 }
 
-.header-actions {
+#view-github .header-actions {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.api-usage {
+#view-github .api-usage {
     display: flex;
     align-items: center;
     gap: 0.6rem;
@@ -172,39 +172,39 @@ input, select, button {
     white-space: nowrap;
 }
 
-.api-usage .api-dot {
+#view-github .api-usage .api-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background-color: #34c759; /* Green dot by default */
 }
 
-.api-usage .api-dot.red {
+#view-github .api-usage .api-dot.red {
     background-color: #ff3b30;
 }
 
-.api-usage .api-dot.yellow {
+#view-github .api-usage .api-dot.yellow {
     background-color: #ffcc00;
 }
 
-.api-usage .api-text {
+#view-github .api-usage .api-text {
     display: flex;
     align-items: center;
     gap: 0.3rem;
 }
 
-.api-usage #apiValue {
+#view-github .api-usage #apiValue {
     color: #d1d1d6; /* Slightly lighter text for the numbers */
     font-weight: 600;
 }
 
-.api-usage .api-reset-time {
+#view-github .api-usage .api-reset-time {
     color: var(--text-secondary);
     font-weight: 400;
 }
 
 /* Rate Limit Banner */
-.rate-limit-banner {
+#view-github .rate-limit-banner {
     background-color: var(--warning-bg);
     color: var(--warning);
     padding: 0.6rem;
@@ -215,7 +215,7 @@ input, select, button {
 }
 
 /* States */
-.empty-state, .error-state {
+#view-github .empty-state, #view-github .error-state {
     text-align: center;
     padding: 5rem 1.5rem;
     margin-top: 3rem;
@@ -224,38 +224,38 @@ input, select, button {
     border-radius: var(--radius);
 }
 
-.empty-state h2, .error-state h2 {
+#view-github .empty-state h2, #view-github .error-state h2 {
     font-weight: 600;
     letter-spacing: -0.02em;
     margin-bottom: 0.5rem;
 }
 
-.empty-state p, .error-state p {
+#view-github .empty-state p, #view-github .error-state p {
     color: var(--text-secondary);
     font-size: 0.95rem;
     max-width: 480px;
     margin: 0 auto;
 }
 
-.error-state {
+#view-github .error-state {
     border-color: var(--danger);
     background-color: var(--danger-bg);
     color: var(--text-primary);
 }
 
-.error-state h2 {
+#view-github .error-state h2 {
     color: var(--danger);
 }
 
 /* Skeletons */
-.skeleton {
+#view-github .skeleton {
     background: linear-gradient(90deg, var(--skeleton-base) 25%, var(--skeleton-shine) 50%, var(--skeleton-base) 75%);
     background-size: 200% 100%;
     animation: loading 1.5s infinite;
     border-radius: var(--radius);
 }
 
-.skeleton-profile {
+#view-github .skeleton-profile {
     display: flex;
     gap: 1.5rem;
     margin-top: 3rem;
@@ -266,31 +266,31 @@ input, select, button {
     align-items: center;
 }
 
-.skeleton-avatar {
+#view-github .skeleton-avatar {
     width: 80px;
     height: 80px;
     border-radius: 50%;
 }
 
-.skeleton-info {
+#view-github .skeleton-info {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-.skeleton-text {
+#view-github .skeleton-text {
     height: 12px;
 }
 
-.skeleton-grid {
+#view-github .skeleton-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1rem;
     margin-top: 1.5rem;
 }
 
-.skeleton-card {
+#view-github .skeleton-card {
     height: 140px;
     border: 1px solid var(--border-color);
 }
@@ -301,7 +301,7 @@ input, select, button {
 }
 
 /* Main Layout Grid */
-.profile-layout {
+#view-github .profile-layout {
     display: grid;
     grid-template-columns: 260px 1fr;
     gap: 2rem;
@@ -310,19 +310,19 @@ input, select, button {
 }
 
 @media (max-width: 768px) {
-    .profile-layout {
+    #view-github .profile-layout {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
 }
 
 /* Sidebar Profile */
-.profile-sidebar {
+#view-github .profile-sidebar {
     display: flex;
     flex-direction: column;
 }
 
-.profile-sidebar .avatar {
+#view-github .profile-sidebar .avatar {
     width: 100%;
     max-width: 260px;
     border-radius: 50%;
@@ -333,33 +333,33 @@ input, select, button {
 }
 
 @media (max-width: 768px) {
-    .profile-sidebar .avatar {
+    #view-github .profile-sidebar .avatar {
         max-width: 120px;
     }
 }
 
-.profile-sidebar .name {
+#view-github .profile-sidebar .name {
     font-size: 1.35rem;
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.2;
 }
 
-.profile-sidebar .username {
+#view-github .profile-sidebar .username {
     font-size: 0.95rem;
     color: var(--text-secondary);
     margin-bottom: 1rem;
     display: inline-block;
 }
 
-.profile-sidebar .bio {
+#view-github .profile-sidebar .bio {
     font-size: 0.9rem;
     color: var(--text-primary);
     margin-bottom: 1.25rem;
     line-height: 1.45;
 }
 
-.profile-meta {
+#view-github .profile-meta {
     border-top: 1px solid var(--border-color);
     padding: 1rem 0;
     display: flex;
@@ -367,7 +367,7 @@ input, select, button {
     gap: 0.5rem;
 }
 
-.profile-meta li {
+#view-github .profile-meta li {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -375,25 +375,25 @@ input, select, button {
     color: var(--text-secondary);
 }
 
-.profile-meta a {
+#view-github .profile-meta a {
     color: var(--text-primary);
 }
 
-.profile-meta .icon {
+#view-github .profile-meta .icon {
     font-size: 0.95rem;
     width: 18px;
     text-align: center;
 }
 
 /* Stats Grid */
-.stats-grid {
+#view-github .stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
     margin-top: 0.5rem;
 }
 
-.stat-box {
+#view-github .stat-box {
     background-color: var(--bg-panel);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
@@ -401,14 +401,14 @@ input, select, button {
     text-align: center;
 }
 
-.stat-value {
+#view-github .stat-value {
     display: block;
     font-size: 1.15rem;
     font-weight: 700;
     letter-spacing: -0.02em;
 }
 
-.stat-label {
+#view-github .stat-label {
     font-size: 0.68rem;
     color: var(--text-secondary);
     text-transform: uppercase;
@@ -417,21 +417,21 @@ input, select, button {
 }
 
 /* Main Content Area */
-.main-content {
+#view-github .main-content {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
 /* Languages Section */
-.languages-section h3, .repos-header h3 {
+#view-github .languages-section h3, #view-github .repos-header h3 {
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: -0.01em;
     margin-bottom: 1rem;
 }
 
-.language-bar-container {
+#view-github .language-bar-container {
     background-color: #1a1a1a;
     height: 8px;
     border-radius: 4px;
@@ -439,24 +439,24 @@ input, select, button {
     margin-bottom: 1.25rem;
 }
 
-.language-bar {
+#view-github .language-bar {
     display: flex;
     height: 100%;
     width: 100%;
 }
 
-.lang-segment {
+#view-github .lang-segment {
     height: 100%;
     transition: width 0.3s ease;
 }
 
-.legend-grid {
+#view-github .legend-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 0.6rem;
 }
 
-.legend-item {
+#view-github .legend-item {
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -464,39 +464,39 @@ input, select, button {
     color: var(--text-secondary);
 }
 
-.legend-color {
+#view-github .legend-color {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     display: inline-block;
 }
 
-.legend-pct {
+#view-github .legend-pct {
     color: var(--text-muted);
     font-size: 0.75rem;
     margin-left: 0.2rem;
 }
 
 /* Repositories Section */
-.repos-header {
+#view-github .repos-header {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
 }
 
-.repo-controls {
+#view-github .repo-controls {
     display: flex;
     gap: 0.5rem;
     width: 100%;
 }
 
 @media (max-width: 576px) {
-    .repo-controls {
+    #view-github .repo-controls {
         flex-direction: column;
     }
 }
 
-.control-input {
+#view-github .control-input {
     flex: 2;
     padding: 0.45rem 0.75rem;
     border: 1px solid var(--border-color);
@@ -506,12 +506,12 @@ input, select, button {
     font-size: 0.85rem;
 }
 
-.control-input:focus {
+#view-github .control-input:focus {
     outline: none;
     border-color: var(--accent);
 }
 
-.control-select {
+#view-github .control-select {
     flex: 1;
     padding: 0.45rem 0.5rem;
     border: 1px solid var(--border-color);
@@ -523,23 +523,23 @@ input, select, button {
     outline: none;
 }
 
-.control-select:focus {
+#view-github .control-select:focus {
     border-color: var(--accent);
 }
 
-.control-select option {
+#view-github .control-select option {
     background-color: var(--bg-panel);
     color: var(--text-primary);
 }
 
 /* Repos Grid */
-.repos-grid {
+#view-github .repos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1rem;
 }
 
-.repo-card {
+#view-github .repo-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -550,12 +550,12 @@ input, select, button {
     transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
-.repo-card:hover {
+#view-github .repo-card:hover {
     border-color: var(--border-hover);
     background-color: #0d0d0f;
 }
 
-.repo-card-header {
+#view-github .repo-card-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -563,18 +563,18 @@ input, select, button {
     margin-bottom: 0.5rem;
 }
 
-.repo-name {
+#view-github .repo-name {
     font-weight: 600;
     font-size: 0.95rem;
     word-break: break-all;
     line-height: 1.3;
 }
 
-.repo-name:hover {
+#view-github .repo-name:hover {
     text-decoration: underline;
 }
 
-.repo-visibility {
+#view-github .repo-visibility {
     font-size: 0.7rem;
     color: var(--text-secondary);
     border: 1px solid var(--border-color);
@@ -583,7 +583,7 @@ input, select, button {
     background-color: var(--bg-main);
 }
 
-.repo-desc {
+#view-github .repo-desc {
     font-size: 0.82rem;
     color: var(--text-secondary);
     margin-bottom: 1.25rem;
@@ -595,7 +595,7 @@ input, select, button {
     flex-grow: 1;
 }
 
-.repo-meta {
+#view-github .repo-meta {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
@@ -606,32 +606,32 @@ input, select, button {
     padding-top: 0.75rem;
 }
 
-.repo-lang {
+#view-github .repo-lang {
     display: flex;
     align-items: center;
     gap: 0.3rem;
     color: var(--text-secondary);
 }
 
-.lang-color {
+#view-github .lang-color {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     display: inline-block;
 }
 
-.repo-stat {
+#view-github .repo-stat {
     display: inline-flex;
     align-items: center;
     gap: 0.15rem;
 }
 
-.repo-updated {
+#view-github .repo-updated {
     margin-left: auto;
     font-size: 0.7rem;
 }
 
-.no-repos {
+#view-github .no-repos {
     grid-column: 1 / -1;
     text-align: center;
     color: var(--text-secondary);
@@ -640,12 +640,12 @@ input, select, button {
 }
 
 /* Load More Button */
-.load-more-container {
+#view-github .load-more-container {
     text-align: center;
     margin-top: 1.5rem;
 }
 
-#loadMoreBtn {
+#view-github #loadMoreBtn {
     padding: 0.6rem 1.75rem;
     border: 1px solid var(--border-color);
     background-color: var(--bg-panel);
@@ -657,7 +657,7 @@ input, select, button {
     transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
-#loadMoreBtn:hover {
+#view-github #loadMoreBtn:hover {
     background-color: var(--bg-main);
     border-color: var(--border-hover);
 }
