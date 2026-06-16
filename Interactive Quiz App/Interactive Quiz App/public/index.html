@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <h1>Simple Quiz</h1>
+            <button id="start-btn">Start Quiz</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <h2 id="question-text">Question</h2>
+            <div id="answers-container"></div>
+            
+            <p id="feedback-message" style="display:none;"></p>
+            <p>Score: <span id="score-tracker">0</span> | Question: <span id="question-tracker">1</span></p>
+            
+            <button id="next-btn" style="display:none;">Next Question</button>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <h2>Quiz Complete</h2>
+            <p>Your Score: <span id="final-score">0</span> out of <span id="total-questions">0</span></p>
+            <p>Percentage: <span id="final-percentage">0%</span></p>
+            <button id="restart-btn">Play Again</button>
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
