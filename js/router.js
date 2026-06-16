@@ -46,13 +46,24 @@ function handleRouteChange() {
         }
     });
 
-    // Toggle global header title
-    const globalHeaderTitle = document.getElementById('global-header-title');
-    if (globalHeaderTitle) {
-        if (viewName === 'portfolio') {
-            globalHeaderTitle.style.display = '';
-        } else {
-            globalHeaderTitle.style.display = 'none';
+    // Update global header title dynamically
+    const titlePart1 = document.getElementById('header-title-part1');
+    const titlePart2 = document.getElementById('header-title-part2');
+    
+    if (titlePart1 && titlePart2) {
+        const titles = {
+            'portfolio': ['Team Agency', 'Portfolio.'],
+            'quiz': ['Interactive', 'Quiz App.'],
+            'expense': ['Expense', 'Tracker.'],
+            'news': ['Live News', 'Feed.'],
+            'github': ['Developer', 'Explorer.'],
+            'kanban': ['Kanban', 'Board.']
+        };
+
+        if (titles[viewName]) {
+            titlePart1.textContent = titles[viewName][0];
+            titlePart2.textContent = titles[viewName][1];
+            document.getElementById('global-header-title').style.display = '';
         }
     }
 
