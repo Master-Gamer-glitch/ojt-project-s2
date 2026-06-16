@@ -7,8 +7,14 @@
     <title>Team Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./InteractiveQuizApp/css/style.css">
+    <link rel="stylesheet" href="./ExpenseTrackerApp/css/style.css">
+    <link rel="stylesheet" href="./LiveNewsFeed/css/style.css">
+    <link rel="stylesheet" href="./GitHubDeveloperExplorer/css/style.css">
+    <link rel="stylesheet" href="./KanbanTaskBoard/css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body class="dark-theme">
@@ -28,24 +34,29 @@
                     </div>
                     
                     <nav class="sidebar-nav">
-                        <a href="#" class="sidebar-link">
+                        <a href="#portfolio" class="sidebar-link active" data-view="portfolio">
                             <i class="ph ph-briefcase"></i> Team Agency Portfolio
+                            <span class="active-dot"></span>
                         </a>
-                        <a href="./InteractiveQuizApp/index.html" class="sidebar-link">
+                        <a href="#quiz" class="sidebar-link" data-view="quiz">
                             <i class="ph ph-game-controller"></i> Interactive Quiz App
+                            <span class="active-dot"></span>
                         </a>
-                        <a href="./ExpenseTrackerApp/index.html" class="sidebar-link">
+                        <a href="#expense" class="sidebar-link" data-view="expense">
                             <i class="ph ph-wallet"></i> Expense Tracker
+                            <span class="active-dot"></span>
                         </a>
-                        <a href="./LiveNewsFeed/index.html" class="sidebar-link">
+                        <a href="#news" class="sidebar-link" data-view="news">
                             <i class="ph ph-newspaper"></i> Live News Feed
+                            <span class="active-dot"></span>
                         </a>
-                        <a href="./GitHubDeveloperExplorer/index.html" class="sidebar-link active">
+                        <a href="#github" class="sidebar-link" data-view="github">
                             <i class="ph ph-github-logo" style="color: #60a5fa;"></i> GitHub Developer Explorer
                             <span class="active-dot"></span>
                         </a>
-                        <a href="./KanbanTaskBoard/index.html" class="sidebar-link">
+                        <a href="#kanban" class="sidebar-link" data-view="kanban">
                             <i class="ph ph-kanban"></i> Kanban Task Board
+                            <span class="active-dot"></span>
                         </a>
                     </nav>
                 </div>
@@ -79,40 +90,298 @@
                 </div>
             </header>
 
-            <main class="container">
-                <section class="team-section" id="team-grid">
-                    <!-- Team members injected via JS -->
-                </section>
+            <main class="container" id="app-content">
+                <div id="view-portfolio" class="view-container active">
+                    <section class="team-section" id="team-grid">
+                        <!-- Team members injected via JS -->
+                    </section>
 
-                <section class="contact-section">
-                    <div class="contact-card">
-                        <h2>Get in touch</h2>
-                        <p>Have a project in mind? Let's build something great together.</p>
-                        <form id="contact-form" class="contact-form" novalidate>
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" required placeholder="Jane Doe">
-                                <span class="error-message" id="name-error">Please enter your name</span>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required placeholder="jane@example.com">
-                                <span class="error-message" id="email-error">Please enter a valid email address</span>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="4" required placeholder="How can we help you?"></textarea>
-                                <span class="error-message" id="message-error">Please enter a message</span>
-                            </div>
-                            <button type="submit" class="submit-btn">Send Message</button>
-                            <div id="form-success" class="form-success hidden">Message sent successfully!</div>
-                        </form>
+                    <section class="contact-section">
+                        <div class="contact-card">
+                            <h2>Get in touch</h2>
+                            <p>Have a project in mind? Let's build something great together.</p>
+                            <form id="contact-form" class="contact-form" novalidate>
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" required placeholder="Jane Doe">
+                                    <span class="error-message" id="name-error">Please enter your name</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required placeholder="jane@example.com">
+                                    <span class="error-message" id="email-error">Please enter a valid email address</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" rows="4" required placeholder="How can we help you?"></textarea>
+                                    <span class="error-message" id="message-error">Please enter a message</span>
+                                </div>
+                                <button type="submit" class="submit-btn">Send Message</button>
+                                <div id="form-success" class="form-success hidden">Message sent successfully!</div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+
+                <div id="view-quiz" class="view-container" style="display: none;">
+                    <div id="app">
+                        <div id="start-screen" class="screen active">
+                            <h1>Simple Quiz</h1>
+                            <button id="start-btn">Start Quiz</button>
+                        </div>
+                        <div id="quiz-screen" class="screen">
+                            <h2 id="question-text">Question</h2>
+                            <div id="answers-container"></div>
+                            <p id="feedback-message" style="display:none;"></p>
+                            <p>Score: <span id="score-tracker">0</span> | Question: <span id="question-tracker">1</span></p>
+                            <button id="next-btn" style="display:none;">Next Question</button>
+                        </div>
+                        <div id="results-screen" class="screen">
+                            <h2>Quiz Complete</h2>
+                            <p>Your Score: <span id="final-score">0</span> out of <span id="total-questions">0</span></p>
+                            <p>Percentage: <span id="final-percentage">0%</span></p>
+                            <button id="restart-btn">Play Again</button>
+                        </div>
                     </div>
-                </section>
+                </div>
+
+                <div id="view-expense" class="view-container" style="display: none;">
+                    <h1><span class="title-primary">Expense</span> <span class="title-secondary">Tracker</span></h1>
+                    <div class="summary">
+                        <div class="card">
+                            <h3>Balance</h3>
+                            <h2 id="balance">₹0</h2>
+                        </div>
+                        <div class="card">
+                            <h3>Income</h3>
+                            <h2 id="income" class="income-text">₹0</h2>
+                        </div>
+                        <div class="card">
+                            <h3>Expense</h3>
+                            <h2 id="expense" class="expense-text">₹0</h2>
+                        </div>
+                    </div>
+                    <div class="form-box">
+                        <h3 id="title">Add Transaction</h3>
+                        <input type="text" id="desc" placeholder="Description">
+                        <input type="number" id="amount" placeholder="Amount">
+                        <input type="date" id="date">
+                        <select id="type">
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                        <button onclick="saveTransaction()">Save Transaction</button>
+                    </div>
+                    <div class="list-box">
+                        <h3>Transactions</h3>
+                        <div id="list"></div>
+                    </div>
+                </div>
+
+                <div id="view-news" class="view-container" style="display: none;">
+                    <header>
+                        <h1 class="logo"><span class="logo-serif">News</span><span class="logo-sans">Flow.</span></h1>
+                        <div class="controls">
+                            <input type="text" id="search-input" placeholder="Search news...">
+                            <select id="category-select">
+                                <option value="all">All Categories</option>
+                                <option value="business">Business</option>
+                                <option value="technology">Technology</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="sports">Sports</option>
+                                <option value="science">Science</option>
+                                <option value="health">Health</option>
+                            </select>
+                            <button id="search-btn">Search</button>
+                        </div>
+                    </header>
+                    <main>
+                        <div id="loading-spinner" class="spinner hidden"></div>
+                        <div id="error-message" class="error hidden"></div>
+                        <div id="news-container" class="news-grid"></div>
+                    </main>
+                </div>
+
+                <div id="view-github" class="view-container" style="display: none;">
+                    <header class="app-header">
+                        <div class="container header-content">
+                            <div class="logo">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.379.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                                <span class="logo-text"><span class="logo-part-1">Dev</span><span class="logo-part-2">Explorer.</span></span>
+                            </div>
+                            <div class="header-actions">
+                                <form id="searchForm" class="search-form">
+                                    <input type="text" id="searchInput" placeholder="Search GitHub username..." autocomplete="off" required>
+                                    <button type="submit">Search</button>
+                                </form>
+                                <div id="apiUsage" class="api-usage">
+                                    <span id="apiStatusDot" class="api-dot"></span>
+                                    <span id="apiText" class="api-text">API: <span id="apiValue">--/60</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div id="rateLimitBanner" class="rate-limit-banner hidden" role="alert">
+                        API Rate limit exceeded. Serving cached data. Resets in <span id="resetTime"></span>.
+                    </div>
+
+                    <main class="container">
+                        <!-- Empty State -->
+                        <section id="emptyState" class="empty-state">
+                            <h2>Discover Developers</h2>
+                            <p>Enter a GitHub username above to view profile information, developer stats, and repositories.</p>
+                        </section>
+
+                        <!-- Error State -->
+                        <section id="errorState" class="error-state hidden" role="alert">
+                            <h2 id="errorTitle">User Not Found</h2>
+                            <p id="errorMessage">Please check the spelling and try again.</p>
+                        </section>
+
+                        <!-- Loading State (Minimalist skeletons) -->
+                        <section id="loadingState" class="loading-state hidden">
+                            <div class="skeleton-profile">
+                                <div class="skeleton-avatar skeleton"></div>
+                                <div class="skeleton-info">
+                                    <div class="skeleton-text skeleton" style="width: 50%; height: 20px;"></div>
+                                    <div class="skeleton-text skeleton" style="width: 30%;"></div>
+                                    <div class="skeleton-text skeleton" style="width: 70%; margin-top: 10px;"></div>
+                                </div>
+                            </div>
+                            <div class="skeleton-grid">
+                                <div class="skeleton-card skeleton"></div>
+                                <div class="skeleton-card skeleton"></div>
+                                <div class="skeleton-card skeleton"></div>
+                            </div>
+                        </section>
+
+                        <!-- Results View -->
+                        <div id="resultsView" class="results-view hidden">
+                            <div class="profile-layout">
+                                <!-- Sidebar Profile -->
+                                <aside class="profile-sidebar">
+                                    <img id="userAvatar" src="" alt="Avatar" class="avatar">
+                                    <h2 id="userName" class="name"></h2>
+                                    <a id="userLogin" href="#" target="_blank" class="username"></a>
+                                    <p id="userBio" class="bio"></p>
+                                    
+                                    <ul class="profile-meta">
+                                        <li id="userLocation" class="hidden"><span class="icon">📍</span> <span class="text"></span></li>
+                                        <li id="userCompany" class="hidden"><span class="icon">🏢</span> <span class="text"></span></li>
+                                        <li id="userBlog" class="hidden"><span class="icon">🔗</span> <a href="#" target="_blank" rel="noopener noreferrer"></a></li>
+                                        <li id="userTwitter" class="hidden"><span class="icon">𝕏</span> <a href="#" target="_blank" rel="noopener noreferrer"></a></li>
+                                    </ul>
+
+                                    <div class="stats-grid">
+                                        <div class="stat-box">
+                                            <span class="stat-value" id="statFollowers">0</span>
+                                            <span class="stat-label">Followers</span>
+                                        </div>
+                                        <div class="stat-box">
+                                            <span class="stat-value" id="statFollowing">0</span>
+                                            <span class="stat-label">Following</span>
+                                        </div>
+                                        <div class="stat-box">
+                                            <span class="stat-value" id="statRepos">0</span>
+                                            <span class="stat-label">Repos</span>
+                                        </div>
+                                        <div class="stat-box">
+                                            <span class="stat-value" id="statStars">0</span>
+                                            <span class="stat-label">Stars</span>
+                                        </div>
+                                    </div>
+                                </aside>
+
+                                <!-- Repos & Stats Content -->
+                                <div class="main-content">
+                                    <!-- Language Section -->
+                                    <section class="languages-section panel">
+                                        <h3>Language Breakdown</h3>
+                                        <div class="language-bar-container">
+                                            <div id="languageBar" class="language-bar"></div>
+                                        </div>
+                                        <div id="languageLegend" class="legend-grid"></div>
+                                    </section>
+
+                                    <!-- Repos Explorer -->
+                                    <section class="repos-section">
+                                        <div class="repos-header panel">
+                                            <h3>Repositories</h3>
+                                            <div class="repo-controls">
+                                                <input type="text" id="repoSearch" class="control-input" placeholder="Find a repository...">
+                                                <select id="repoLanguageFilter" class="control-select" aria-label="Filter by language">
+                                                    <option value="all">All Languages</option>
+                                                </select>
+                                                <select id="repoSort" class="control-select" aria-label="Sort repositories">
+                                                    <option value="updated-desc">Recently Updated</option>
+                                                    <option value="updated-asc">Oldest Updated</option>
+                                                    <option value="stars">Most Stars</option>
+                                                    <option value="forks">Most Forks</option>
+                                                    <option value="size">Largest Size</option>
+                                                    <option value="name">Name (A-Z)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <!-- Grid -->
+                                        <div id="reposGrid" class="repos-grid"></div>
+                                        
+                                        <!-- Load More -->
+                                        <div class="load-more-container">
+                                            <button id="loadMoreBtn" class="hidden">Load More</button>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+
+                <div id="view-kanban" class="view-container" style="display: none;">
+                    <div class="board-container">
+                        <header>
+                            <h1><span class="font-playfair">Kanban</span> <span class="font-inter">Task Board</span></h1>
+                            <div class="add-task-container">
+                                <input type="text" id="taskInput" placeholder="Enter a new task...">
+                                <button id="addTaskBtn" onclick="addTask()">Add Task</button>
+                            </div>
+                        </header>
+
+                        <div class="board">
+                            <div class="column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                <h2 class="column-header todo-header">To Do</h2>
+                                <div class="task-list" id="todo-list">
+                                </div>
+                            </div>
+
+                            <div class="column" id="progress" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                <h2 class="column-header progress-header">In Progress</h2>
+                                <div class="task-list" id="progress-list">
+                                </div>
+                            </div>
+
+                            <div class="column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                <h2 class="column-header done-header">Done</h2>
+                                <div class="task-list" id="done-list">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
         </div>
     </div>
 
     <script src="./js/script.js"></script>
+    <script src="./js/router.js"></script>
+    <script type="module" src="./InteractiveQuizApp/js/app.js"></script>
+    <script src="./ExpenseTrackerApp/js/script.js"></script>
+    <script type="module" src="./LiveNewsFeed/js/app.js"></script>
+    <script type="module" src="./GitHubDeveloperExplorer/js/app.js"></script>
+    <script src="./KanbanTaskBoard/js/storage.js"></script>
+    <script src="./KanbanTaskBoard/js/dragdrop.js"></script>
+    <script src="./KanbanTaskBoard/js/tasks.js"></script>
+    <script src="./KanbanTaskBoard/js/app.js"></script>
 </body>
 </html>

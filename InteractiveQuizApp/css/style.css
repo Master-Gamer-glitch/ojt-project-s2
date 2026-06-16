@@ -1,4 +1,4 @@
-body {
+#view-quiz {
     background-color: #000000;
     color: #eeeeee;
     font-family: system-ui, -apple-system, sans-serif;
@@ -10,7 +10,7 @@ body {
     min-height: 100vh;
 }
 
-#app {
+#view-quiz #app {
     width: 100%;
     max-width: 450px;
     padding: 40px;
@@ -19,28 +19,28 @@ body {
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.03);
 }
 
-.screen {
+#view-quiz .screen {
     display: none;
 }
 
-.screen.active {
+#view-quiz .screen.active {
     display: block;
 }
 
-h1, h2 {
+#view-quiz h1, #view-quiz h2 {
     margin-top: 0;
     margin-bottom: 20px;
     font-weight: 600;
     letter-spacing: -0.5px;
 }
 
-p {
+#view-quiz p {
     color: #aaaaaa;
     margin-bottom: 20px;
 }
 
 /* General Answer Buttons */
-button {
+#view-quiz button {
     background-color: #111111;
     color: #dddddd;
     border: 1px solid #333333;
@@ -54,32 +54,32 @@ button {
     transition: background-color 0.2s, border-color 0.2s;
 }
 
-button:hover:not(:disabled) {
+#view-quiz button:hover:not(:disabled) {
     background-color: #222222;
     border-color: #555555;
     color: #ffffff;
 }
 
-button:disabled {
+#view-quiz button:disabled {
     cursor: not-allowed;
     opacity: 0.6;
 }
 
 /* Feedback Colors */
-.correct {
+#view-quiz .correct {
     background-color: #003300 !important;
     border-color: #00ff00 !important;
     color: #00ff00 !important;
 }
 
-.wrong {
+#view-quiz .wrong {
     background-color: #330000 !important;
     border-color: #ff0000 !important;
     color: #ff0000 !important;
 }
 
 /* Primary Actions (Start, Next, Restart) */
-#start-btn, #next-btn, #restart-btn {
+#view-quiz #start-btn, #view-quiz #next-btn, #view-quiz #restart-btn {
     text-align: center;
     background-color: #ffffff;
     color: #000000;
@@ -88,6 +88,6 @@ button:disabled {
     margin-top: 15px;
 }
 
-#start-btn:hover, #next-btn:hover, #restart-btn:hover {
+#view-quiz #start-btn:hover, #view-quiz #next-btn:hover, #view-quiz #restart-btn:hover {
     background-color: #dddddd;
 }

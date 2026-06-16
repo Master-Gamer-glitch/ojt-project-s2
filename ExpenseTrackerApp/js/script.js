@@ -120,7 +120,7 @@ function showTransactions() {
     document.getElementById("balance").innerHTML = `₹${income - expense}`;
 }
 
-window.onload = function () {
+window.addEventListener('DOMContentLoaded', function () {
     document.getElementById("date").value = new Date().toISOString().split("T")[0];
     showTransactions();
 };

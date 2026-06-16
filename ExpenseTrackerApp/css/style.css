@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
-:root {
+#view-expense {
     --bg:           #000000;
     --surface:      #080808;
     --border:       #181818;
@@ -16,13 +16,13 @@
     --font-serif:   'Playfair Display', Georgia, serif;
 }
 
-*, *::before, *::after {
+#view-expense *, #view-expense *::before, #view-expense *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
+#view-expense {
     font-family: var(--font);
     background: var(--bg);
     color: var(--text);
@@ -33,7 +33,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
+#view-expense h1 {
     font-size: 22px;
     color: var(--text);
     margin-bottom: 32px;
@@ -42,27 +42,27 @@ h1 {
     align-items: baseline;
 }
 
-.title-primary {
+#view-expense .title-primary {
     font-family: var(--font);
     font-weight: 600;
     letter-spacing: -0.04em;
 }
 
-.title-secondary {
+#view-expense .title-secondary {
     font-family: var(--font-serif);
     font-weight: 400;
     font-style: italic;
     color: var(--accent);
 }
 
-.summary {
+#view-expense .summary {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
     margin-bottom: 36px;
 }
 
-.card {
+#view-expense .card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 10px;
@@ -70,11 +70,11 @@ h1 {
     transition: border-color 0.15s ease;
 }
 
-.card:hover {
+#view-expense .card:hover {
     border-color: var(--border-hover);
 }
 
-.card h3 {
+#view-expense .card h3 {
     font-size: 9px;
     font-weight: 500;
     text-transform: uppercase;
@@ -83,22 +83,22 @@ h1 {
     margin-bottom: 8px;
 }
 
-.card h2 {
+#view-expense .card h2 {
     font-size: 18px;
     font-weight: 600;
     letter-spacing: -0.03em;
     color: var(--text);
 }
 
-.form-box,
-.list-box {
+#view-expense .form-box,
+#view-expense .list-box {
     border-top: 1px solid var(--border);
     padding-top: 28px;
     margin-bottom: 36px;
 }
 
-.form-box h3,
-.list-box h3 {
+#view-expense .form-box h3,
+#view-expense .list-box h3 {
     font-size: 9px;
     font-weight: 500;
     text-transform: uppercase;
@@ -107,8 +107,8 @@ h1 {
     margin-bottom: 18px;
 }
 
-input,
-select {
+#view-expense input,
+#view-expense select {
     width: 100%;
     padding: 11px 14px;
     margin-bottom: 10px;
@@ -123,21 +123,21 @@ select {
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-input::placeholder {
+#view-expense input::placeholder {
     color: var(--text-muted);
 }
 
-input:focus,
-select:focus {
+#view-expense input:focus,
+#view-expense select:focus {
     border-color: var(--accent);
     box-shadow: 0 0 0 3px var(--accent-dim);
 }
 
-input[type="date"] {
+#view-expense input[type="date"] {
     color-scheme: dark;
 }
 
-.form-box button {
+#view-expense .form-box button {
     width: 100%;
     padding: 11px;
     margin-top: 4px;
@@ -153,24 +153,24 @@ input[type="date"] {
     transition: opacity 0.15s ease, box-shadow 0.15s ease;
 }
 
-.form-box button:hover {
+#view-expense .form-box button:hover {
     opacity: 0.88;
     box-shadow: 0 0 14px var(--accent-dim);
 }
 
-#list {
+#view-expense #list {
     display: flex;
     flex-direction: column;
 }
 
-#list p {
+#view-expense #list p {
     font-size: 12px;
     color: var(--text-muted);
     text-align: center;
     padding: 32px 0;
 }
 
-.tx {
+#view-expense .tx {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -179,43 +179,43 @@ input[type="date"] {
     transition: opacity 0.15s ease;
 }
 
-.tx:last-child {
+#view-expense .tx:last-child {
     border-bottom: none;
 }
 
-.tx b {
+#view-expense .tx b {
     font-size: 13px;
     font-weight: 400;
     color: var(--text);
     display: block;
 }
 
-.tx-date {
+#view-expense .tx-date {
     font-size: 11px;
     color: var(--text-sub);
     margin-top: 2px;
 }
 
-.tx div:last-child {
+#view-expense .tx div:last-child {
     display: flex;
     align-items: center;
     gap: 14px;
 }
 
-.amount {
+#view-expense .amount {
     font-size: 13px;
     font-weight: 500;
     letter-spacing: -0.01em;
 }
 
-.tx.income  .amount,
-.income-text               { color: var(--green); }
+#view-expense .tx.income  .amount,
+#view-expense .income-text               { color: var(--green); }
 
-.tx.expense .amount,
-.expense-text              { color: var(--red); }
+#view-expense .tx.expense .amount,
+#view-expense .expense-text              { color: var(--red); }
 
-.edit,
-.delete {
+#view-expense .edit,
+#view-expense .delete {
     font-family: var(--font);
     font-size: 11px;
     font-weight: 400;
@@ -227,5 +227,5 @@ input[type="date"] {
     transition: color 0.15s ease;
 }
 
-.edit:hover   { color: var(--accent); }
-.delete:hover { color: var(--red);    }
+#view-expense .edit:hover   { color: var(--accent); }
+#view-expense .delete:hover { color: var(--red);    }
