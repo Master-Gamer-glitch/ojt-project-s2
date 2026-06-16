@@ -323,19 +323,19 @@
 }
 
 #view-github .profile-sidebar .avatar {
-    width: 100%;
-    max-width: 260px;
+    width: 260px;
+    height: 260px;
     border-radius: 50%;
     border: 1px solid var(--border-color);
     background-color: var(--bg-panel);
-    aspect-ratio: 1/1;
     object-fit: cover;
     margin-bottom: 1.25rem;
 }
 
 @media (max-width: 768px) {
     #view-github .profile-sidebar .avatar {
-        max-width: 120px;
+        width: 120px;
+        height: 120px;
     }
 }
 
