@@ -152,6 +152,57 @@ input, select, button {
     background-color: var(--accent-hover);
 }
 
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.api-usage {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.45rem 1rem;
+    background-color: #1c1c1e; /* Match pill color in image */
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.api-usage .api-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #34c759; /* Green dot by default */
+}
+
+.api-usage .api-dot.red {
+    background-color: #ff3b30;
+}
+
+.api-usage .api-dot.yellow {
+    background-color: #ffcc00;
+}
+
+.api-usage .api-text {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.api-usage #apiValue {
+    color: #d1d1d6; /* Slightly lighter text for the numbers */
+    font-weight: 600;
+}
+
+.api-usage .api-reset-time {
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
 /* Rate Limit Banner */
 .rate-limit-banner {
     background-color: var(--warning-bg);

@@ -1,3 +1,6 @@
+import { fetchDeveloperDetails, getRateLimit } from './api.js';
+import { formatKB, formatDate } from './utils.js';
+
 // GitHub Developer Explorer - Client Logic
 
 let activeData = null; // Store current search payload
@@ -9,6 +12,11 @@ const DOM = {
     searchInput: document.getElementById('searchInput'),
     rateLimitBanner: document.getElementById('rateLimitBanner'),
     resetTime: document.getElementById('resetTime'),
+    
+    // API Usage
+    apiUsage: document.getElementById('apiUsage'),
+    apiStatusDot: document.getElementById('apiStatusDot'),
+    apiValue: document.getElementById('apiValue'),
     
     emptyState: document.getElementById('emptyState'),
     errorState: document.getElementById('errorState'),
@@ -56,16 +64,46 @@ function showState(stateName) {
     else if (stateName === 'results') DOM.resultsView.classList.remove('hidden');
 }
 
-// Format size helper
-function formatKB(kb) {
-    if (kb < 1024) return `${kb} KB`;
-    return `${(kb / 1024).toFixed(1)} MB`;
+// Update API Usage UI
+function updateApiUsageUI() {
+    const limit = getRateLimit();
+    
+    if (limit.remaining === null) {
+        DOM.apiValue.textContent = '--/60';
+        DOM.apiStatusDot.className = 'api-dot';
+        return;
+    }
+    
+    let remaining = limit.remaining;
+    
+    // Optimistic reset if time has passed
+    if (limit.reset && Date.now() > limit.reset * 1000) {
+        remaining = 60;
+    }
+
+    if (remaining <= 10) {
+        DOM.apiStatusDot.className = 'api-dot red';
+    } else if (remaining <= 30) {
+        DOM.apiStatusDot.className = 'api-dot yellow';
+    } else {
+        DOM.apiStatusDot.className = 'api-dot'; // Green
+    }
+    
+    if (remaining < 60 && limit.reset && (limit.reset * 1000) > Date.now()) {
+        const now = Date.now();
+        const resetMs = limit.reset * 1000;
+        const mins = Math.ceil((resetMs - now) / 60000);
+        DOM.apiValue.innerHTML = `${remaining}/60 <span class="api-reset-time">(resets in ${mins}m)</span>`;
+    } else {
+        DOM.apiValue.textContent = `${remaining}/60`;
+    }
 }
 
+// Format size helper
+// (Moved to utils.js)
+
 // Format date helper
-function formatDate(dateStr) {
-    return new Date(dateStr).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
-}
+// (Moved to utils.js)
 
 // Main search handler
 async function handleSearch(e) {
@@ -77,15 +115,12 @@ async function handleSearch(e) {
     DOM.rateLimitBanner.classList.add('hidden');
     
     try {
-        const response = await fetch(`/api/developer/${encodeURIComponent(username)}`);
-        const result = await response.json();
-        
-        if (!response.ok) {
-            throw new Error(result.error || 'Failed to fetch developer details');
-        }
+        const result = await fetchDeveloperDetails(username);
         
         activeData = result;
         visibleCount = 12; // Reset pagination
+        
+        updateApiUsageUI();
         
         // Show rate limit banner if remaining is low
         if (result.rateLimit && result.rateLimit.remaining === 0) {
@@ -294,6 +329,7 @@ function setupEvents() {
 // Initialize application
 document.addEventListener('DOMContentLoaded', () => {
     setupEvents();
+    updateApiUsageUI();
     
     // Pre-populate input if URL contains a query param
     const params = new URLSearchParams(window.location.search);
