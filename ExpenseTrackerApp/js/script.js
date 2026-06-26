@@ -1,10 +1,27 @@
 let transactions = [];
 let editId = null;
 
+function escapeHTML(str) {
+    return String(str).replace(/[&<>'"]/g, 
+        tag => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            "'": '&#39;',
+            '"': '&quot;'
+        }[tag] || tag)
+    );
+}
+
 const data = localStorage.getItem("transactions");
 
 if (data) {
-    transactions = JSON.parse(data);
+    try {
+        transactions = JSON.parse(data);
+    } catch (e) {
+        transactions = [];
+        console.error("Failed to parse transactions", e);
+    }
 }
 
 function saveStorage() {
@@ -36,7 +53,7 @@ function saveTransaction() {
             }
         }
         editId = null;
-        document.getElementById("title").innerHTML = "Add Transaction";
+        document.getElementById("title").textContent = "Add Transaction";
     } else {
         transactions.push({
             id: String(Date.now()), 
@@ -63,7 +80,7 @@ function editTransaction(id) {
             document.getElementById("type").value = transactions[i].type;
 
             editId = transactions[i].id; 
-            document.getElementById("title").innerHTML = "Edit Transaction";
+            document.getElementById("title").textContent = "Edit Transaction";
             break;
         }
     }
@@ -85,24 +102,24 @@ function clearForm() {
 }
 
 function showTransactions() {
-    let income = 0;
-    let expense = 0;
+    const income = transactions
+        .filter(t => t.type === "income")
+        .reduce((sum, t) => sum + t.amount, 0);
+
+    const expense = transactions
+        .filter(t => t.type === "expense")
+        .reduce((sum, t) => sum + t.amount, 0);
+
     let html = "";
 
     for (let i = 0; i < transactions.length; i++) {
         let t = transactions[i];
 
-        if (t.type === "income") {
-            income += t.amount;
-        } else {
-            expense += t.amount;
-        }
-
         html += `
         <div class="tx ${t.type}">
             <div>
-                <b>${t.desc}</b>
-                <span class="tx-date">${t.date}</span>
+                <b>${escapeHTML(t.desc)}</b>
+                <span class="tx-date">${escapeHTML(t.date)}</span>
             </div>
 
             <div>
